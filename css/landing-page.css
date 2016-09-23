@@ -21,6 +21,11 @@ h6 {
     font-weight: 700;
 }
 
+body {
+    font-size: 18px;
+    font-weight: normal;
+}
+
 a {
     color: #3c9ff3;
 }
@@ -97,7 +102,7 @@ a {
 
 .icon.major {
     display: inline-block;
-    margin: 0 0 1.25em 0;
+    margin: 0 0 0.75em 0;
     color: #ffffff;
     background: #3c9ff3;
     width: 2em;

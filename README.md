@@ -2,9 +2,12 @@
 
 Jekyll theme based on [landing-page bootstrap theme ](http://startbootstrap.com/templates/landing-page/)
 
+## Deployed
+[https://dhagge.github.io/](https://dhagge.github.io/)
+
 ## Running
-bundle install
-bundle exec jekyll serve
+    bundle install
+    bundle exec jekyll serve
 
 ## How to use
  - Place a image in `/img/services/`
