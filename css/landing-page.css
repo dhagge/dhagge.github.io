@@ -202,7 +202,7 @@ section.special, article.special {
 
 @media(min-width:992px) {
     .box {
-        min-height: 601px;
+        min-height: 551px;
     }
     .box h3 {
         min-height: 2em;
