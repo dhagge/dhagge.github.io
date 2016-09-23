@@ -1,0 +1,32 @@
+# ----------------------- #
+#      Main Configs       #
+# ----------------------- #
+
+url: http://yoursite.com
+title: Damian Hagge
+email: your-email@domain.com
+author: Damian Hagge
+description: > # "Write an awesome description for your new site here. 
+  Damian Hagge - freelance software engineer in Phoenix, Arizona. 
+  Mobile, Big Data, Machine Learning, Cloud, Full Stack, Technial Strategy
+copyright: 'Copyright &copy; 2016 Damian Hagge. All Rights Reserved.'
+credits: 'Damian Hagge is a software engineer in Phoenix, AZ. He is currently co-founder 
+and CTO of mobile healthcare payments startup <a href="http://cuesquared.com/">Cue2</a>.'
+
+# ----------------------- #
+#    Jekyll & Plugins     #
+# ----------------------- #
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+
+# ----------------------- #
+#   3rd Party Settings    #
+# ----------------------- #
+
+social:
+  - title: github
+    url: https://github.com/dhagge
+  - title: linkedin
+    url: https://www.linkedin.com/in/damian-hagge-7187a7

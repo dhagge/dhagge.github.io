@@ -1,0 +1,8 @@
+---
+layout: default
+img: appdynamics.png
+category: Projects
+title: AppDynamics Analytics
+description: |
+---
+  As an employee of Silicon Valley unicorn [AppDynamics](http://www.appdynamics.com/) I was an initial core team member creating the Analytics line of business. We scaled this new product from scratch to $7M annual revenue in 12 months. It features a large ElasticSearch and Kafka solution which ingests 10TB per day and indexes into a 60+ node ElasticSearch cluster cloud hosted on AWS.

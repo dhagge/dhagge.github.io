@@ -1,0 +1,8 @@
+---
+layout: default
+img: cue2.png
+category: Projects
+title: Cue2 <br/> Mobile Patient Payments
+description: |
+---
+  Co-founder, CTO and technical creator of [Cue2](http://cuesquared.com/) which helps medical practices provide patients with easy payments solutions. Features an AWS hosted spring-boot Java backend with an angular mobile hybrid front end.

@@ -1,0 +1,8 @@
+---
+layout: default
+img: primetab.png
+category: Projects
+title: Primetab Virtual Patient Assistant
+description: |
+---
+Creator of the inpatient tablet solution for [Adelante LLC](http://adelantehealth.co/) which is currently rolled out in several hospitals across the US. Features a webpy python services tier and a JMVC-based mobile hybrid front end and includes patient credit card payments, a streaming movie library and a custom HL7 processing engine.
