@@ -94,6 +94,41 @@ a {
     }
 }
 
+.highlights-wrapper {
+    width: 100%;
+}
+
+.highlights {
+    list-style: none;
+    text-align: left;
+    width: 65%;
+    margin: auto;
+}
+
+@media(min-width:992px) {
+    .highlights li {
+        padding: 0 0 0 2em;
+    }
+}
+
+@media(max-width:992px) {
+    .highlights li {
+        padding: 0 0 0 0.5em;
+    }
+}
+
+.highlights li:before {
+    color: #72c115;
+    content: "\f00c";
+    font-family: FontAwesome;
+    display: inline-block;
+    font-size: 1.5em;
+    margin-left: -1.65em;
+    margin-right: 0.3em;
+    top: 2px;
+    width: 1.35em;
+}
+
 .icon {
     text-decoration: none;
     border-bottom: none;
@@ -201,10 +236,10 @@ section.special, article.special {
 }
 
 @media(min-width:992px) {
-    .box {
+    .special.box {
         min-height: 551px;
     }
-    .box h3 {
+    .special.box h3 {
         min-height: 2em;
     }
 }

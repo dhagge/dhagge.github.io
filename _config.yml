@@ -26,7 +26,12 @@ permalink: pretty
 # ----------------------- #
 
 social:
-  - title: github
-    url: https://github.com/dhagge
-  - title: linkedin
+  - icon: linkedin
+    title: linkedin
     url: https://www.linkedin.com/in/damian-hagge-7187a7
+  - icon: envelope
+    title: email
+    url: mailto:contact@damianhagge.com
+  - icon: github
+    title: github
+    url: https://github.com/dhagge
