@@ -1,0 +1,45 @@
+<section id="blogs" class="blogs-container">
+    <div class="container">
+        <div class="row">
+
+            {% for post in paginator.posts %}   
+                <div class="col-md-6 clickable" onclick="location.href='{{ post.url }}'">
+                    <!-- Blog Classic -->
+                    <article class="blog-classic">
+                        <img class="img-responsive" src="/img/{{ post.img }}" alt="">
+                        <div class="blog-classic-body">
+                            <h2 class="title">{{ post.title }}</h2>
+                            <span class="subtitle"><p>{{ post.content | strip_html | truncatewords: 33}}</p></span>
+
+                            <p class="subtitle"><a href="{{ post.url }}">Read more...</a></p>
+                            <hr/>
+                            <p class="paragraph"></i> <span>{{ post.date | date: "%B %d, %Y" }}</span></p>
+                        </div>
+                        <!--
+                        <a href="http://github.com/minimaxir/big-list-of-naughty-strings" class="blog-classic-link"></a>
+                        -->
+                    </article>
+                    <!-- End Blog Classic -->
+                </div>
+            {% endfor %}
+
+        </div>
+
+        <div class="row paginator">
+
+            <div class="col-md-6 prev">
+                {% if paginator.previous_page %}
+                    <a href="{{ paginator.previous_page_path }}#blogs" class="button">&laquo; Prev</a>
+                {% endif %}
+            </div>
+
+            <div class="col-md-6">
+                {% if paginator.next_page %}
+                    <a href="{{ paginator.next_page_path }}#blogs" class="button">Next &raquo;</a>
+                {% endif %}
+            </div>
+
+        </div>
+
+    </div>
+</section>

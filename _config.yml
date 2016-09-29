@@ -2,9 +2,9 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://yoursite.com
+url: http://damianhagge.com
 title: Damian Hagge
-email: your-email@domain.com
+email: me@damianhagge.com
 author: Damian Hagge
 description: > # "Write an awesome description for your new site here. 
   Damian Hagge - freelance software engineer in Phoenix, Arizona. 
@@ -17,9 +17,18 @@ and CTO of mobile healthcare payments startup <a href="http://cuesquared.com/">C
 #    Jekyll & Plugins     #
 # ----------------------- #
 
+gems: 
+  - jekyll-paginate
+  - jekyll-sitemap
+
 # Build settings
 markdown: kramdown
 permalink: pretty
+
+# pagination
+paginate: 4
+paginate_path: "/blogs/page:num"
+
 
 # ----------------------- #
 #   3rd Party Settings    #
@@ -35,3 +44,6 @@ social:
   - icon: github
     title: github
     url: https://github.com/dhagge
+  - icon: twitter
+    title: twitter
+    url: https://twitter.com/DamianHagge
