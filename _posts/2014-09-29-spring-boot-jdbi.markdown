@@ -43,11 +43,13 @@ I wanted the best of both Spring Boot DI as well as a nice simple and consice OR
 ## build.gradle
 
 Firstly you have to get rid of those hibernate libs
+
 ```gradle
 configurations {
     all*.exclude group: "org.hibernate", module: "hibernate-entitymanager"
     all*.exclude group: "org.apache.tomcat", module: "tomcat-jdbc"
 }
+```
 
 And then let's add the dependencies we need
 ```gradle
@@ -67,6 +69,7 @@ dependencies {
     )
 }
 ```
+
 We're adding joda-time to allow for DateTime objects to be serialized to/from the DB, because everyone uses Joda don't they?
 
 ## application.properties
