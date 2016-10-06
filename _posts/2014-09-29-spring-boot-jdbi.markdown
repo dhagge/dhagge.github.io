@@ -14,7 +14,7 @@ I recently found myself architecting yet another microservices REST backend. Wit
 
 ## Spring
 
-The grandaddy of modern microservices backends spring has great dynamic injection (DI) and a large extensive library of addons, but it feels boated and enterprisey. It's the workhorse for many successful rest backends but has a long startup time and just feels somewhat cumbersome to work in when compared to some of the newer frameworks.
+The grandaddy of modern microservices backends spring has great dynamic injection (DI) and a large extensive library of addons, but it tends to have long startup time and feels quite heavy and enterprisey when compared to some of the newer microservices frameworks.
 
 It also features out of the box support for Hibernate as an ORM layer which (feel free to flame me in the comments) in my experience gets in the way as often as it doesn't. It's great for simple relational structures and is quick to bootstrap solutions but as soon as you're dealing with complex data structures or want specific types of queries (say for efficiency) it becomes quite cumbersome. 
 
@@ -22,7 +22,7 @@ It also features out of the box support for Hibernate as an ORM layer which (fee
 
 A light-weight Jersey container which provides great support for [JDBI](http://jdbi.org/) as an ORM-light solution. I've found JDBI to be a simple way to interact with a DB, yes you have to bind your ResultSets to your model objects manually but I've found it a small price to pay for the great flexibility it provides. In my opinion it's a really nice solution that sits somewhere between JDBC and a full-blown ORM. 
 
-What dropwizard doesn't do well is DI. There is support for Guice via extensions like [dropwizard-guice](https://github.com/HubSpot/dropwizard-guice) but I have found these to be clunky at best. My biggest issue with all of these solutions is that you end up with deperate DI graphs for each module. This isn't a problem for simple applications but I've experienced in complex applications that dropwizard-guice becomes quite unweildy and the seperate DI graphs end up having the same class being injected with a different instance/state which can start producing unintended results. 
+What dropwizard doesn't do well is DI. There is support for Guice via extensions like [dropwizard-guice](https://github.com/HubSpot/dropwizard-guice) but I have found these to be clunky at best. My biggest issue with all of these solutions is that you end up with separate DI graphs for each module. This isn't a problem for simple applications but I've experienced in complex applications that dropwizard-guice becomes quite unweildy and the seperate DI graphs end up having the same class being injected with a different instance/state which can start producing unintended results. 
 
 I really just want out of the box DI that is easy to use and gets out of the way. This should be plumbing, not an application feature.
 
@@ -32,9 +32,24 @@ Well, clearly one of these things is not like the other. I included web.py becau
 
 ## Spring Boot
 
-Spring Boot is a lightweight version of Spring that is focussed on creation Spring-like applications that "just run". Whereas Spring can feel quite enterprisey, Spring Boot both feels and performs like a true first-class microservices framework. It has the same great support for DI as Spring and also features an extensive library of `spring-boot-starter-*` maven dependencies that you can use to add support for a great many things.
+Spring Boot is a lightweight version of Spring that is focussed on creating Spring-like applications that "just run". If you're new to Spring Boot  there are some excellent [getting started guides](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#getting-started-introducing-spring-boot) in the Spring Boot [reference guide](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/).
 
-It still, however, uses hibernate as it's "native" ORM tier. Now if that's fine for you then go for it, Spring Boot out of the box is a great solution but for me I just find it too cumbersome. So what's a savvy software engineer to do?
+Whereas Spring can feel quite enterprisey, Spring Boot both feels and performs like a true first-class microservices framework. It has the same great support for DI as Spring and also features an extensive library of `spring-boot-starter-*` maven dependencies that you can use to add support for a great many things.
+
+It still, however, uses hibernate as it's "native" ORM tier. Now if that's fine for you then go for it, Spring Boot out of the box is a great solution but for me I just find Hibernate too cumbersome.
+
+## Hibernate vs JDBI
+
+I've stated that Hibernate "gets in the way" and that JDBI is "a really nice solution" which bears further discussion to draw out a few points. Firstly, there are many Hibernate applications which operate well at scale (and I have developed many), however, there is very much a trend to move away from heavy ORM solutions for some of the following reasons:
+
+- Hibernate can generate large numbers of unecesary queries, even due to minor misconfigurations. When properly configured it still often performs worse than simple SQL queries.
+- ORMs are "leaky abstractions" which purport to shield us from lower-level DB details, but inevitably to use the abstraction effectively we have to know the internals.
+- Hibernate is opinionated about your data strucure. When you have a data structure that doesn't folow it's notion of keys and relationships you immediately run up against the [Object-relational Impedance Mismatch](https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch).
+- You don't see the performance problems until you scale! When your application is small and simple everything seems to go along smoothly, then you scale and all of a sudden hibernate queries are the root of your performance problems. I've myself hit this situation many times and it's always taken significant rework to fix the issues.
+
+This [quora post](https://www.quora.com/What-are-the-drawbacks-of-using-ORMs) is an excellent discussion that reinforces some of the points I make above and also touches on others. This certainly isn't a right or wrong discussion and I do not want to suggest that JBDI is the cure to all evils, but it is an alternative to a "heavy" ORM like Hibernate. I have personally encountered many tech companies which are happly using JDBI inside Dropwizard and would not move back to using Hibernate. 
+
+So what's a savvy software engineer to do?
 
 # Spring Boot + JDBI
 
@@ -42,7 +57,7 @@ I wanted the best of both Spring Boot DI as well as a nice simple and consice OR
 
 ## build.gradle
 
-Firstly you have to get rid of those hibernate libs
+Firstly I had to get rid of those hibernate libs
 
 ```gradle
 configurations {
@@ -70,7 +85,7 @@ dependencies {
 }
 ```
 
-We're adding joda-time to allow for DateTime objects to be serialized to/from the DB, because everyone uses Joda don't they?
+I'm adding joda-time to allow for DateTime objects to be serialized to/from the DB. I include joda-time since I personally still use it over Java 8 Date and Time since Joda-`Interval`, `PeriodFormatter` or `PeriodType` are not available in Java-8.
 
 ## application.properties
 
@@ -83,7 +98,7 @@ spring.datasource.password=
 spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 ```
 
-Note that I used MySQL as the DB but that can be swapped out with whichever driver you want ot use of course.
+Note that I used MySQL as the DB but that can be swapped out with whichever driver you want to use of course.
 
 ## ServiceApplication
 
@@ -174,7 +189,7 @@ public class PersistenceConfiguration {
 
 ## Autowire and use JDBI
 
-That's it, now you can autowire and use a `DBI` object to do everything that [JDBI](http://jdbi.org) allows you to do
+That's it, now you can autowire and use a `DBI` object to do everything that [JDBI](http://jdbi.org) allows you to do.
 
 ```java
 @RestController
@@ -202,5 +217,37 @@ public class TestResource {
 ```
 
 I personally tend to use the JDBI [SQL Object API](http://jdbi.org/sql_object_overview/) which I find a simple and convinient way to query data but you can read the docs and use what's right for you.
+
+## Running the code
+
+Make sure you have [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [MySQL](http://dev.mysql.com/doc/refman/5.7/en/installing.html) installed on your machine.
+
+First, from the command line, pull the code from git:
+```
+git clone https://github.com/dhagge/spring-boot-jdbi-seed.git
+```
+
+Then to build it just do the following:
+```
+./gradlew build
+```
+
+Seed the database with some test schema and data:
+```
+./gradlew dbUpdate
+./gradlew dbSeed
+```
+
+Run the Spring Boot service:
+```
+./gradlew bootRun
+```
+
+Now call the test REST service from a new command prompt:
+```
+curl localhost:9090/test
+```
+
+You'll see the response `Hello there, this is a test!` which is actually data obtained from the `my_test` table in the database via the `TestResource` class.
 
 Full source code can be found at [spring-boot-jdbi-seed](https://github.com/dhagge/spring-boot-jdbi-seed), please fork and use at your leisure!
