@@ -9,7 +9,7 @@ tags:
 description: |
 ---
 
-I've spend 15+ years in software and approximately one third of that in healthcare software. I truly believe that healthcare software is due for disruption and I think there's a very strong parallel with the disruption that has happened in other industries (e.g. finance, advertising, journalism, brick-and-mortar commerce) as well as the disruption that is currently occurring (e.g self-driving cars).
+I've spent 15+ years in software and approximately one third of that in healthcare software. I truly believe that healthcare software is due for disruption and I think there's a very strong parallel with the disruption that has happened in other industries (e.g. finance, advertising, journalism, brick-and-mortar commerce) as well as the disruption that is currently occurring (e.g self-driving cars).
 
 ## Why hasn't the disruption happened yet?
 
@@ -51,9 +51,9 @@ After all, low cost solutions is how much of the technology disruption in other 
 
 ### Maybe what providers do isn't that complex?
 
-A third reason why disruption may be closer than we think is a somewhat controverial topic. It is very possible that what healthcare providers do day-to-day isn't nearly as complex as we are led to believe. Many of the providers I've spoken to, possibly with the exception of surgeons (although that may also be debatable), actually don't have an extremely complex descision making process, and if there is one thing technology excels at it's automating routine processes out of existence! 
+A third reason why disruption may be closer than we think is a somewhat controversial topic. It is very possible that what healthcare providers do day-to-day isn't nearly as complex as we are led to believe. Many of the providers I've spoken to, possibly with the exception of surgeons (although that may also be debatable), actually don't have an extremely complex decision making process, and if there is one thing technology excels at it's automating routine processes out of existence! 
 
-We're still missing some of the key pieces before this can become reality, specifically lots of acessible data against which to apply machine learning, but in my experience many of the descisions and functions that are done today in healthcare could be done cheaper and with less error by automated processes. Of course the current generation of healthcare software probably won't deliver this, but big data and [machine learning are improving at astounding rates](http://singularityhub.com/2016/06/17/long-promised-artificial-intelligence-is-looming-and-its-going-to-be-amazing/) and there is certainly an inflection point at which algorithms will be able to perform these tasks as well, or better, than humans. 
+We're still missing some of the key pieces before this can become reality, specifically lots of accessible data against which to apply machine learning, but in my experience many of the decisions and functions that are done today in healthcare could be done cheaper and with less error by automated processes. Of course the current generation of healthcare software probably won't deliver this, but big data and [machine learning are improving at astounding rates](http://singularityhub.com/2016/06/17/long-promised-artificial-intelligence-is-looming-and-its-going-to-be-amazing/) and there is certainly an inflection point at which algorithms will be able to perform these tasks as well, or better, than humans. 
 
 Eventually machine learning and automation will be able to perform much of the current healthcare model and processes, the question isn't "if" but "when", and "when" may well be sooner than we think.
 
@@ -61,6 +61,6 @@ Eventually machine learning and automation will be able to perform much of the c
 
 Google disrupted advertising, Amazon disrupted commerce, Netflix disrupted video rentals and cable, Uber/Lyft disrupted taxis, self-driving cars will [disrupt trucking](https://medium.com/basic-income/self-driving-trucks-are-going-to-hit-us-like-a-human-driven-truck-b8507d9c5961#.8s8sii88p) and the [automobile industry](http://stateofinnovation.thomsonreuters.com/will-self-driving-cars-disrupt-the-auto-industry). Healthcare may be complex but it's not a unique industry that somehow cannot be disrupted. It will happen gradually at first, but, as seen in other disrupted industries, when critical mass is reached I believe it will change very quickly and many companies will go out of business due to antiquated systems and software.
 
-Imagine a world where we can consume healthcare like we consume everything else, in the confort of our own homes: digitally for things that don't require physical interaction (most doctor visits), on-demand for those that do (e.g. mobile physicians, diagnostics, etc). All at a lower total cost than what we pay today, with better software-supported decision making and outcomes. This is the path that disruption has taken in other industries and also the path which I believe healthcare will inevitably take.
+Imagine a world where we can consume healthcare like we consume everything else, in the comfort of our own homes: digitally for things that don't require physical interaction (most doctor visits), on-demand for those that do (e.g. mobile physicians, diagnostics, etc). All at a lower total cost than what we pay today, with better software-supported decision making and outcomes. This is the path that disruption has taken in other industries and also the path which I believe healthcare will inevitably take.
 
 I truly think that the future of healthcare will be bright once the disruption starts. When will that be? Well I'll have to dust off my crystal ball and get back to you on that one... but I do think that the seeds are already planted.
