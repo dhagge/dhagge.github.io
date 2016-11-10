@@ -10,6 +10,8 @@ tags:
 description: |
 ---
 
+**Note: this is an article I originally published [on sitepoint.com](https://www.sitepoint.com/combining-spring-boot-and-jdbi/).**
+
 I recently found myself architecting yet another microservices REST backend. Within the past few years I've written from-scratch backends in [Spring](https://projects.spring.io/spring-framework/), [Dropwizard](http://www.dropwizard.io/) and even in Python using [web.py](http://webpy.org/) but each has left me wanting more. 
 
 ## Spring
